@@ -1,0 +1,33 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  background-image: url(../../images/backgroundLp.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  color: white;
+}
+
+.container1 {
+  background-color: rgba(18, 17, 17, 0.6352941176);
+  height: auto;
+  width: 450px;
+}
+
+.img-logo {
+  width: 185px;
+}
+
+.paragraph {
+  margin: 6px 0;
+}
+
+.fotter {
+  margin-top: 20px;
+  margin-bottom: -30px;
+}
+
+/*# sourceMappingURL=style.css.map */
