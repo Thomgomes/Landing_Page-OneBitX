@@ -20,6 +20,7 @@
 
     <!-- CSS Custon -->
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/media.css" />
 
     <title>Rumo a marte - OneBitX</title>
   </head>
@@ -27,7 +28,11 @@
     <div class="container px-4 rounded container1">
       <!-- logo -->
       <div class="text-center">
-        <img class="img-fluid img-logo my-4" src="./images/logoOneBitDark.png" alt="logoOneBitDark" />
+        <img
+          class="img-fluid img-logo my-4"
+          src="./images/logoOneBitDark.png"
+          alt="logoOneBitDark"
+        />
       </div>
 
       <!-- Divisão Username -->
@@ -35,20 +40,26 @@
         1 - Qual o seu nome?
       </p>
       <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Primeiro nome:</span>
+        <span class="input-group-text name" id="basic-addon1">
+          Primeiro nome:
+        </span>
         <input
           type="text"
           class="form-control"
+          id="inputName1"
           placeholder="Exemplo: Thomás"
           aria-label="Username"
           aria-describedby="basic-addon1"
         />
       </div>
       <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Segundo nome:</span>
+        <span class="input-group-text name" id="basic-addon1">
+          Segundo nome:
+        </span>
         <input
           type="text"
           class="form-control"
+          id="inputName2"
           placeholder="Exemplo: D'Angelo"
           aria-label="Username"
           aria-describedby="basic-addon1"
@@ -62,9 +73,10 @@
           class="form-check-input"
           type="radio"
           name="flexRadioDefault"
-          id="flexRadioDefault1"
+          id="genderM"
+          value="Masculino"
         />
-        <label class="form-check-label" for="flexRadioDefault1">
+        <label class="form-check-label" for="genderM">
           Masculino
         </label>
       </div>
@@ -73,9 +85,10 @@
           class="form-check-input"
           type="radio"
           name="flexRadioDefault"
-          id="flexRadioDefault2"
+          id="genderF"
+          value="Feminino"
         />
-        <label class="form-check-label" for="flexRadioDefault2">
+        <label class="form-check-label" for="genderF">
           Femenino
         </label>
       </div>
@@ -84,13 +97,24 @@
           class="form-check-input"
           type="radio"
           name="flexRadioDefault"
-          id="flexRadioDefault3"
+          id="outherGender"
+          value=""
         />
-        <label class="form-check-label" for="flexRadioDefault3">
-          Outro Gênero
+        <label class="form-check-label" for="outherGender">
+          Outro gênero
         </label>
       </div>
-
+      <div class="input-group my-3 d-none" id="chosenGender">
+        <input
+          type="text"
+          class="form-control"
+          id="inputNameGender"
+          placeholder="Como se identifica?"
+          value=""
+          aria-label="UserGender"
+          aria-describedby="basic-addon1"
+        />
+      </div>
       <!-- Divisão Expêriencia -->
       <p class="mt-3 paragraph">3 - Marque os treinamentos que você fez:</p>
       <div class="form-check form-switch">
@@ -98,9 +122,10 @@
           class="form-check-input"
           type="checkbox"
           role="switch"
-          id="flexSwitchCheckDefault"
+          id="treinamentoA1"
+          value="básico"
         />
-        <label class="form-check-label" for="flexSwitchCheckDefault">
+        <label class="form-check-label" for="treinamentoA1">
           Treinamento básico de astronauta
         </label>
       </div>
@@ -109,9 +134,10 @@
           class="form-check-input"
           type="checkbox"
           role="switch"
-          id="flexSwitchCheckChecked"
+          id="treinamentoF1"
+          value="básico"
         />
-        <label class="form-check-label" for="flexSwitchCheckChecked">
+        <label class="form-check-label" for="treinamentoF1">
           Treinamento físico básico
         </label>
       </div>
@@ -120,9 +146,10 @@
           class="form-check-input"
           type="checkbox"
           role="switch"
-          id="flexSwitchCheckDisabled"
+          id="treinamentoA2"
+          value="avançado"
         />
-        <label class="form-check-label" for="flexSwitchCheckDisabled">
+        <label class="form-check-label" for="treinamentoA2">
           Treinamento avançado de astronauta
         </label>
       </div>
@@ -131,9 +158,10 @@
           class="form-check-input"
           type="checkbox"
           role="switch"
-          id="flexSwitchCheckCheckedDisabled"
+          id="treinamentoF2"
+          value="intenso"
         />
-        <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">
+        <label class="form-check-label" for="treinamentoF2">
           Treinamento físico intenso
         </label>
       </div>
@@ -144,28 +172,28 @@
         <input
           class="form-check-input"
           type="checkbox"
-          id="inlineCheckbox1"
-          value="option1"
+          id="checkP"
+          value="Proativo"
         />
-        <label class="form-check-label" for="inlineCheckbox1">Proativo</label>
+        <label class="form-check-label" for="checkP">Proativo</label>
       </div>
       <div class="form-check form-check-inline">
         <input
           class="form-check-input"
           type="checkbox"
-          id="inlineCheckbox2"
-          value="option2"
+          id="checkR"
+          value="Resistente"
         />
-        <label class="form-check-label" for="inlineCheckbox2">Resistente</label>
+        <label class="form-check-label" for="checkR">Resistente</label>
       </div>
       <div class="form-check form-check-inline">
         <input
           class="form-check-input"
           type="checkbox"
-          id="inlineCheckbox1"
-          value="option3"
+          id="checkNVF"
+          value="Não vomito fácil"
         />
-        <label class="form-check-label" for="inlineCheckbox3">
+        <label class="form-check-label" for="checkNVF">
           Não vomito fácil
         </label>
       </div>
@@ -173,10 +201,10 @@
         <input
           class="form-check-input"
           type="checkbox"
-          id="inlineCheckbox2"
-          value="option4"
+          id="checkNTM"
+          value="Não temo marciano"
         />
-        <label class="form-check-label" for="inlineCheckbox4">
+        <label class="form-check-label" for="checkNTM">
           Não temo marciano
         </label>
       </div>
@@ -184,19 +212,89 @@
         <input
           class="form-check-input"
           type="checkbox"
-          id="inlineCheckbox1"
-          value="option5"
+          id="checkSW"
+          value="Eu Já vi todos os star wars"
         />
-        <label class="form-check-label" for="inlineCheckbox5">
+        <label class="form-check-label" for="checkSW">
           Já vi todos os star wars
         </label>
       </div>
 
-      <!-- Button -->
+      <!-- Button and Modal-->
       <div class="text-center mt-3 py-2">
-        <button class="btn btn-outline-danger">
+        <button
+          type="button"
+          class="btn btn-outline-danger send"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop"
+        >
           Enviar
         </button>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal1">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4
+              class="modal-title fs-5"
+              id="staticBackdropLabel"
+              style="color: red;"
+            >
+              Confirme Seus Dados
+            </h4>
+          </div>
+          <div class="modal-body" style="color: red;">
+            <p>Verifique se todos os daos estão corretos!</p>
+            <p>
+              Seu nome é:
+              <span id="spanName1">teste</span>
+              <span id="spanName2"></span>
+            </p>
+            <p>
+              Do gênero:
+              <span id="spanGen">**</span>
+            </p>
+            <p>
+              Você fez os treinos de:
+              <br>
+              astronauta: <span id="spanT1"></span>
+              <br>
+              físico: <span id="spanT2"></span>
+            </p>
+            <p>
+              E suas habilidades são:
+              <span id="checkboxSpan"></span>
+            </p>
+            <br /><hr>
+            <p>
+              Em caso de precisar fazer quais quer alterações nos seus dados,
+              clique em alterar dados
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Alterar dados
+            </button>
+            <button type="button" class="btn btn-danger">
+              Salvar dados
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -214,5 +312,7 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+
+    <script src="./app.js"></script>
   </body>
 </html>
