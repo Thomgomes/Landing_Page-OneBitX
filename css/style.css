@@ -15,6 +15,7 @@ body {
   background-color: rgba(18, 17, 17, 0.6352941176);
   height: auto;
   width: 450px;
+  visibility: hidden;
 }
 
 .img-logo {

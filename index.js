@@ -1,3 +1,5 @@
+ScrollReveal().reveal('.container1', { delay: 50 });
+
 // Usermane
 const fristName = document.getElementById('inputName1')
 const secondName = document.getElementById('inputName2')
@@ -80,24 +82,24 @@ checkA2.addEventListener("click", function () { TrainingLevel(checkA2) })
 checkF2.addEventListener("click", function () { TrainingLevel(checkF2) })
 
 //função para desbloquear botão
-function UnlockButton (button) {
+function UnlockButton(button) {
   const unlockConditions = {
     name1: false,
     name2: false,
     gender: false,
   }
 
-  fristName.addEventListener("change", function() {
+  fristName.addEventListener("change", function () {
     let nameValue = document.getElementById('inputName1').value
 
-    if(nameValue.length >= 1){
+    if (nameValue.length >= 1) {
       return unlockConditions.name1 = true
     }
   });
-  secondName.addEventListener("change", function() {
+  secondName.addEventListener("change", function () {
     let nameValue = document.getElementById('inputName2').value
 
-    if(nameValue.length >= 1){
+    if (nameValue.length >= 1) {
       return unlockConditions.name2 = true
     }
   });
@@ -107,10 +109,10 @@ function UnlockButton (button) {
 
     switch (el) {
       case genderM:
-        if (genderM.checked) { unlockConditions.gender = true;}
+        if (genderM.checked) { unlockConditions.gender = true; }
         break
       case genderF:
-        if (genderF.checked) { unlockConditions.gender = true;}
+        if (genderF.checked) { unlockConditions.gender = true; }
         break
       case outherGender:
         if (outherGender.checked && outherGenderValue.length >= 1) {
@@ -126,7 +128,7 @@ function UnlockButton (button) {
   inputNameGender.addEventListener("change", function () { conditionGender(outherGender) })
 
   setInterval(() => {
-    if(unlockConditions.name1 && unlockConditions.name2 && unlockConditions.gender){
+    if (unlockConditions.name1 && unlockConditions.name2 && unlockConditions.gender) {
       button.removeAttribute('disabled')
     }
   }, 800);
@@ -151,6 +153,9 @@ for (let checkbox of checkboxes) {
   })
 }
 
+let genderChosen
+let treiningA
+let treiningF
 //função para renderizar no modal
 function ModalRender() {
   //nome
@@ -159,28 +164,37 @@ function ModalRender() {
   //gênero
   if (genderM.checked) {
     modalSpanGen.innerHTML = ` ${genderM.value}`
+    genderChosen = genderM.value
   } else if (genderF.checked) {
     modalSpanGen.innerHTML = ` ${genderF.value}`
+    genderChosen = genderF.value
   } else if (outherGender.checked) {
     modalSpanGen.innerHTML = ` ${inputNameGender.value}`
+    genderChosen = inputNameGender.value
   } else {
     modalSpanGen.innerHTML = ` Indefinido, defina seu gênero.`
   }
   //treinamento de astronauta
   if (checkA1.checked) {
     modalSpanT1.innerHTML = ` ${checkA1.value}`
+    treiningA = "basico"
   } else if (checkA2.checked) {
-    modalSpanT1.innerHTML =  `${checkA2.value}`
+    modalSpanT1.innerHTML = `${checkA2.value}`
+    treiningA = "avancado"
   } else {
     modalSpanT1.innerHTML = ` Não possue treinamento de astronauta.`
+    treiningA = "Nao possue treinamento de astronauta"
   }
   // treinamento fisico
   if (checkF1.checked) {
     modalSpanT2.innerHTML = `${checkF1.value}`
+    treiningF = "basico"
   } else if (checkF2.checked) {
     modalSpanT2.innerHTML = `${checkF2.value}`
+    treiningF = "avancado"
   } else {
     modalSpanT2.innerHTML = `Não possue treinamento físico.`
+    treiningF = "Nao possue treinamento fisico"
   }
 }
 UnlockButton(sendButton)
