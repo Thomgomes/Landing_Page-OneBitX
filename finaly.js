@@ -1,5 +1,3 @@
-ScrollReveal().reveal('.container1', { delay: 50 });
-
 const spanNome = document.querySelector('.spanNome')
 const spanGenero = document.querySelector('.spanGenero')
 const spanAstro = document.querySelector('.spanAstro')
