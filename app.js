@@ -79,6 +79,59 @@ checkF1.addEventListener("click", function () { TrainingLevel(checkF1) })
 checkA2.addEventListener("click", function () { TrainingLevel(checkA2) })
 checkF2.addEventListener("click", function () { TrainingLevel(checkF2) })
 
+//função para desbloquear botão
+function UnlockButton (button) {
+  const unlockConditions = {
+    name1: false,
+    name2: false,
+    gender: false,
+  }
+
+  fristName.addEventListener("change", function() {
+    let nameValue = document.getElementById('inputName1').value
+
+    if(nameValue.length >= 1){
+      return unlockConditions.name1 = true
+    }
+  });
+  secondName.addEventListener("change", function() {
+    let nameValue = document.getElementById('inputName2').value
+
+    if(nameValue.length >= 1){
+      return unlockConditions.name2 = true
+    }
+  });
+
+  function conditionGender(el) {
+    let outherGenderValue = document.getElementById('inputNameGender').value
+
+    switch (el) {
+      case genderM:
+        if (genderM.checked) { unlockConditions.gender = true;}
+        break
+      case genderF:
+        if (genderF.checked) { unlockConditions.gender = true;}
+        break
+      case outherGender:
+        if (outherGender.checked && outherGenderValue.length >= 1) {
+          unlockConditions.gender = true
+        }
+        break
+      default:
+        console.error("Invalid Option!")
+    }
+  }
+  genderM.addEventListener("click", function () { conditionGender(genderM) })
+  genderF.addEventListener("click", function () { conditionGender(genderF) })
+  inputNameGender.addEventListener("change", function () { conditionGender(outherGender) })
+
+  setInterval(() => {
+    if(unlockConditions.name1 && unlockConditions.name2 && unlockConditions.gender){
+      button.removeAttribute('disabled')
+    }
+  }, 800);
+}
+
 //função para pegar os valores das qualidades
 let listArray = []
 let checkboxes = [checkP, checkR, checkNVF, checkNTM, checkSW]
@@ -130,5 +183,5 @@ function ModalRender() {
     modalSpanT2.innerHTML = `Não possue treinamento físico.`
   }
 }
-
+UnlockButton(sendButton)
 sendButton.addEventListener("click", function () { ModalRender() })
